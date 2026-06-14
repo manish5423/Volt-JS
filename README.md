@@ -1,59 +1,127 @@
-# ThunderJS - A JavaScript Runtime in Python
+# ⚡ ThunderJS
 
-ThunderJS is a custom JavaScript interpreter built from scratch in Python for the **THUNDER HACKATHON 2.0**. It aims to execute JavaScript code correctly by implementing a Lexer, a Recursive Descent Parser, and an AST-based Interpreter.
+**A High-Performance JavaScript Runtime Built in Python**
 
-## Features Supported
+ThunderJS is a custom JavaScript interpreter engineered from the ground up for the **THUNDER HACKATHON 2.0**. It features a full pipeline including a Lexer, a Recursive Descent Parser, and an AST-based Interpreter to bring JavaScript execution to the Python environment.
 
-- **Variables**: `let`, `const`, `var`.
-- **Primitives**: `number`, `string`, `boolean`, `null`, `undefined`.
-- **Operators**: Arithmetic (`+`, `-`, `*`, `/`, `%`, `**`), Comparison (`==`, `===`, `!=`, `!==`, `>`, `<`), Logical (`&&`, `||`, `!`).
-- **Control Flow**: `if-else`, `for`, `while`, `do...while`.
-- **Functions**: Declarations, Expressions, Arrow Functions, Callbacks.
-- **Arrays**: Spread operator `[...]`, methods like `push`, `pop`, `join`, `reverse`, `map`, `filter`, `reduce`, `find`, `includes`, `indexOf`, `forEach`.
-- **Strings**: `length`, `split`, `join`, `toUpperCase`, `toLowerCase`, `trim`, `substring`, `slice`, `replace`, `startsWith`, `endsWith`.
-- **Built-in Objects**: `console.log`, `Math` (random, floor, ceil, round, etc.), `Date`.
+---
 
-## Project Structure
+## 🏗️ Architecture Flow
 
-- `lexer.py`: Tokenizes the source code.
-- `parser.py`: Generates an Abstract Syntax Tree (AST).
-- `ast_nodes.py`: Defines the structure of the AST.
-- `interpreter.py`: Evaluates the AST nodes.
-- `environment.py`: Manages variable scoping and environments.
-- `runtime.py`: Implements built-in JavaScript objects and methods.
-- `main.py`: CLI entry point for running JS files.
-- `examples/`: Contains the 5 test cases and additional examples.
+ThunderJS follows a classic interpreter design:
 
-## Getting Started
+```mermaid
+graph LR
+    A[JS Source Code] -->|Lexical Analysis| B(Lexer)
+    B -->|Tokens| C(Parser)
+    C -->|AST Nodes| D(Interpreter)
+    D -->|Evaluation| E[Output / Runtime]
+    F[(Environment)] <--> D
+    G[(Runtime Lib)] <--> D
+```
+
+---
+
+## 🔥 Key Features
+
+| Category | Supported Features |
+| :--- | :--- |
+| **Variables** | `let`, `const`, `var` (Block & Function Scoping) |
+| **Data Types** | `Number`, `String`, `Boolean`, `Null`, `Undefined`, `Array`, `Object` |
+| **Control Flow**| `if-else`, `for`, `while`, `do...while` |
+| **Functions** | Declarations, Expressions, Arrow Functions, Callbacks, Recursion |
+| **Arrays** | Spread `[...]`, `push`, `pop`, `map`, `filter`, `reduce`, etc. |
+| **Strings** | `length`, `split`, `slice`, `substring`, `toUpperCase`, etc. |
+| **Built-ins** | `console.log`, `Math`, `Date` |
+
+---
+
+## 📸 Test Showcases (Code & Output)
+
+Below are some of the primary test cases used to validate the runtime.
+
+### 1. Odd/Even Checker
+**File:** `examples/odd_even.js`
+```javascript
+let num = 7;
+
+if (num % 2 === 0) {
+    console.log(num + " is Even");
+} else {
+    console.log(num + " is Odd");
+}
+```
+**Output:**
+> `7 is Odd`
+
+### 2. Triangle Pattern Generation
+**File:** `examples/triangle.js`
+```javascript
+for (let i = 1; i <= 5; i++) {
+    let row = "";
+    for (let j = 1; j <= i; j++) { 
+        row += "*"; 
+    } 
+    console.log(row); 
+}
+```
+**Output:**
+```text
+*
+**
+***
+****
+*****
+```
+
+### 3. Palindrome Check
+**File:** `examples/palindrome.js`
+```javascript
+function isPalindrome(str) {
+    let rev = str.split("").reverse().join("");
+    return str === rev;
+}
+console.log("Is 'racecar' palindrome?", isPalindrome("racecar"));
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+├── examples/           # Test cases (.js files)
+├── ast_nodes.py        # AST Node classes
+├── lexer.py            # Tokenizer
+├── parser.py           # Recursive Descent Parser
+├── interpreter.py      # AST Evaluator
+├── environment.py      # Scope Management
+├── runtime.py          # Built-in Library (Math, Console, etc.)
+├── main.py             # CLI Entry Point
+└── README.md           # Documentation
+```
+
+## 🚀 Getting Started
 
 ### Prerequisites
-
-- Python 3.7+
+- Python 3.7 or higher
 
 ### Installation
-
-No external dependencies are required. Clone the repository and you are ready to go.
-
 ```bash
 git clone <your-repo-link>
 cd thundersssss
 ```
 
 ### Usage
-
-To run a JavaScript file:
-
+Run any JavaScript file using the following command:
 ```bash
 python main.py examples/odd_even.js
 ```
 
-### Running Test Cases
+---
 
-The following test cases are provided in the `examples/` directory:
+## 🏆 Hackathon Details
+- **Event:** THUNDER HACKATHON 2.0
+- **Project Name:** ThunderJS
+- **Goal:** Create a functional JS interpreter in Python.
 
-1. **Odd/Even Checker**: `python main.py examples/odd_even.js`
-2. **Triangle Pattern**: `python main.py examples/triangle.js`
-3. **Armstrong Number**: `python main.py examples/armstrong.js`
-4. **Array Reverse**: `python main.py examples/reverse.js`
-5. **Palindrome Check**: `python main.py examples/palindrome.js`
 
