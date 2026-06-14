@@ -1,16 +1,16 @@
-# ⚡ ThunderJS
+# ⚡ Volt-JS
 
 ## A High-Performance JavaScript Runtime Built in Python
 
-ThunderJS is a custom JavaScript interpreter engineered entirely from scratch using **Python**. Developed for **THUNDER HACKATHON 2.0**, it demonstrates the core principles behind programming language implementation by building a complete execution pipeline consisting of a **Lexer**, **Recursive Descent Parser**, **Abstract Syntax Tree (AST)**, and **Interpreter**.
+Volt-JS is a custom JavaScript interpreter engineered entirely from scratch using **Python**. Developed for **THUNDER HACKATHON 2.0**, it demonstrates the core principles behind programming language implementation by building a complete execution pipeline consisting of a **Lexer**, **Recursive Descent Parser**, **Abstract Syntax Tree (AST)**, and **Interpreter**.
 
-Instead of relying on existing JavaScript engines like **Google V8**, ThunderJS parses and executes JavaScript code through its own runtime implemented in Python.
+Instead of relying on existing JavaScript engines like **Google V8**, Volt-JS parses and executes JavaScript code through its own runtime implemented in Python.
 
 ---
 
 # 🏗️ Architecture
 
-ThunderJS follows the traditional interpreter architecture used in modern programming languages.
+Volt-JS follows the traditional interpreter architecture used in modern programming languages.
 
 ```mermaid
 graph LR
@@ -24,9 +24,9 @@ graph LR
 
 ---
 
-# ⚙️ How ThunderJS Works
+# ⚙️ How Volt-JS Works
 
-Every JavaScript program executed by ThunderJS passes through multiple stages before producing the final output.
+Every JavaScript program executed by Volt-JS passes through multiple stages before producing the final output.
 
 ## 1. `main.py` – Entry Point
 
@@ -135,7 +135,7 @@ It is responsible for executing:
 * Recursion
 * Scope resolution
 
-This component forms the core execution engine of ThunderJS.
+This component forms the core execution engine of Volt-JS.
 
 ---
 
@@ -275,7 +275,7 @@ true
 # 📂 Project Structure
 
 ```text
-ThunderJS/
+Volt-JS/
 │
 ├── examples/              # JavaScript test programs
 ├── ast_nodes.py           # AST node definitions
@@ -300,7 +300,7 @@ ThunderJS/
 
 ```bash
 git clone <your-repository-url>
-cd ThunderJS
+cd Volt-JS
 ```
 
 ## Run a JavaScript File
